@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Joris Houindote — Développeur Web Fullstack basé au Bénin. Découvrez mes projets, dont Secours Bénin, une plateforme de gestion des urgences médicales.">
-<title>Joris Houindote — Développeur Web Fullstack Laravel</title>
+<meta name="description" content="Joris Houindote — Développeur Web Fullstack basé au Bénin. Découvrez mes projets Secours Bénin (urgences médicales) et SouRIR ONG (accompagnement psychosocial), développés avec Laravel.">
+<title>Joris Houindote — Développeur Web Fullstack Laravel | Secours Bénin & SouRIR ONG</title>
+
+<!-- Open Graph / réseaux sociaux : remplace REPLACE_WITH_YOUR_DOMAIN par ton URL Vercel réelle -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joris Houindote — Développeur Web Fullstack Laravel">
+<meta property="og:description" content="Développeur Web Fullstack basé au Bénin. Découvrez mes projets Secours Bénin et SouRIR ONG, développés avec Laravel.">
+<meta property="og:image" content="https://REPLACE_WITH_YOUR_DOMAIN/secours-benin.png">
+<meta property="og:url" content="https://REPLACE_WITH_YOUR_DOMAIN">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,6 +25,7 @@
 --border: #1c3352;
 --blue: #2f80f7;
 --blue-light: #5ea1ff;
+--green: #4ade80;
 --text: #eef3fb;
 --text-dim: #93a3bd;
 --text-faint: #5a6c8a;
@@ -62,7 +72,10 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 /* ---- HERO ---- */
 .hero{position:relative; padding:100px 0 80px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; overflow:hidden;}
 @media (max-width:900px){ .hero{grid-template-columns:1fr; padding:60px 0 40px; text-align:center;} .hero .cta-row{justify-content:center;} }
-.eyebrow{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.12em; color:var(--blue-light); background:var(--navy-3); border:1px solid var(--border); padding:6px 14px; border-radius:20px; margin-bottom:20px;}
+.badges-row{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:20px;}
+@media (max-width:900px){ .badges-row{justify-content:center;} }
+.eyebrow{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.12em; color:var(--blue-light); background:var(--navy-3); border:1px solid var(--border); padding:6px 14px; border-radius:20px;}
+.availability-badge{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--green); background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.25); padding:6px 14px; border-radius:20px;}
 h1{font-family:var(--display); font-weight:800; font-size:clamp(32px,5vw,52px); line-height:1.15; letter-spacing:-0.01em; margin-bottom:8px;}
 h1 .blue{color:var(--blue-light);}
 .subtitle{font-family:var(--display); font-weight:600; font-size:clamp(18px,2.5vw,24px); color:var(--blue); margin-bottom:20px;}
@@ -144,23 +157,26 @@ transition:transform 0.4s ease, box-shadow 0.4s ease;
 .tech-badges{display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:32px;}
 .badge{font-family:var(--mono); font-size:12px; font-weight:500; color:var(--text-dim); background:var(--navy-2); border:1px solid var(--border); padding:10px 20px; border-radius:30px; transition:all 0.3s ease; cursor:default;}
 .badge:hover{border-color:var(--blue); color:var(--blue-light); background:rgba(47,128,247,0.08); transform:translateY(-3px); box-shadow:0 4px 15px rgba(47,128,247,0.15);}
-/* ---- PROJECT ---- */
-.project-card{
+/* ---- PROJECTS ---- */
+.projects-grid{display:flex; flex-direction:column; gap:32px; max-width:900px; margin:0 auto;}
+a.project-card{
 background:var(--navy-2); border:1px solid var(--border); border-radius:20px; overflow:hidden;
-display:grid; grid-template-columns:1.2fr 1fr; max-width:900px; margin:0 auto;
-transition:transform 0.3s ease, box-shadow 0.3s ease;
+display:grid; grid-template-columns:1.2fr 1fr;
+transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+cursor:pointer;
 }
-.project-card:hover{transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,0.3);}
-@media (max-width:800px){ .project-card{grid-template-columns:1fr;} }
+a.project-card:hover{transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,0.3); border-color:var(--blue);}
+@media (max-width:800px){ a.project-card{grid-template-columns:1fr;} }
 .project-thumb{
 min-height:280px; position:relative; overflow:hidden;
 background:radial-gradient(circle at 30% 30%, rgba(47,128,247,0.25), transparent 60%), linear-gradient(135deg, #0d2038, #0a1628);
 display:flex; align-items:center; justify-content:center;
+padding:24px;
 }
-.project-thumb .thumb-mono{font-family:var(--mono); font-size:13px; color:var(--text-dim); letter-spacing:0.08em; border:1px solid var(--border); background:rgba(10,22,40,0.7); padding:10px 18px; border-radius:10px; backdrop-filter:blur(4px);}
-.project-thumb .badge-status{position:absolute; top:20px; left:20px; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; background:var(--blue); color:#fff; padding:6px 12px; border-radius:6px; font-weight:600;}
+.project-thumb .photo{width:100%; height:100%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.35);}
+.project-thumb .badge-status{position:absolute; top:20px; left:20px; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; background:var(--blue); color:#fff; padding:6px 12px; border-radius:6px; font-weight:600; z-index:2;}
 .project-body{padding:36px 32px; display:flex; flex-direction:column; justify-content:center;}
-.project-body h3{font-family:var(--display); font-weight:800; font-size:22px; margin-bottom:12px;}
+.project-body h3{font-family:var(--display); font-weight:800; font-size:22px; margin-bottom:12px; color:var(--text);}
 .project-body > p{color:var(--text-dim); font-size:14px; margin-bottom:20px; line-height:1.7;}
 .features-list{list-style:none; margin-bottom:24px;}
 .features-list li{font-size:13px; color:var(--text-dim); margin-bottom:8px; display:flex; align-items:center; gap:8px;}
@@ -168,7 +184,7 @@ display:flex; align-items:center; justify-content:center;
 .project-tech{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
 .project-tech span{font-size:11px; font-family:var(--mono); color:var(--blue-light); background:rgba(47,128,247,0.1); padding:4px 10px; border-radius:4px; border:1px solid rgba(47,128,247,0.2);}
 .arrow-btn{width:44px; height:44px; border-radius:50%; background:var(--blue); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; transition:transform .3s, background .3s; align-self:flex-start;}
-.arrow-btn:hover{transform:rotate(45deg); background:var(--blue-light);}
+a.project-card:hover .arrow-btn{transform:rotate(45deg); background:var(--blue-light);}
 /* ---- SKILLS ---- */
 .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
 @media (max-width:900px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
@@ -216,7 +232,10 @@ footer{padding:40px 0; text-align:center; border-top:1px solid var(--border); ba
 <div class="wrap">
 <section class="hero" id="accueil">
 <div class="hero-content fade-in">
+<div class="badges-row">
 <span class="eyebrow">DÉVELOPPEUR WEB FULLSTACK</span>
+<span class="availability-badge">🟢 Disponible pour un stage / une mission freelance</span>
+</div>
 <h1>Bonjour, je suis <span class="blue">Joris Houindote</span></h1>
 <h2 class="subtitle">Développeur Web Fullstack</h2>
 <p class="lead">Je conçois des applications web modernes et performantes avec Laravel, PHP et MySQL. Mon objectif est de transformer des besoins métiers en solutions numériques simples, sécurisées et efficaces.</p>
@@ -328,12 +347,15 @@ footer{padding:40px 0; text-align:center; border-top:1px solid var(--border); ba
 <section id="projets">
 <div class="section-head fade-in">
 <span class="tag">PORTFOLIO</span>
-<h2>PROJET PHARE</h2>
+<h2>PROJETS PHARES</h2>
 </div>
-<div class="project-card fade-in">
+
+<div class="projects-grid">
+
+<a href="https://secours.plateformejw.bj/" class="project-card fade-in" target="_blank" rel="noopener" aria-label="Voir le projet Secours Bénin">
 <div class="project-thumb">
 <span class="badge-status">EN PRODUCTION</span>
-<img src="secours-benin.png" alt="" class="photo" style="width: 600px; height: 550px; object-fit: contain;">
+<img src="secours-benin.png" alt="Capture d'écran de la plateforme Secours Bénin, tableau de bord de gestion des urgences médicales" class="photo" loading="lazy">
 </div>
 <div class="project-body">
 <h3>Secours Bénin</h3>
@@ -353,8 +375,34 @@ footer{padding:40px 0; text-align:center; border-top:1px solid var(--border); ba
 <span>Leaflet</span>
 <span>PWA</span>
 </div>
-<a href="https://secours.plateformejw.bj/" class="arrow-btn" target="_blank" rel="noopener" aria-label="Voir le projet Secours Bénin">→</a>
+<span class="arrow-btn" aria-hidden="true">→</span>
 </div>
+</a>
+
+<a href="https://sourirong.org" class="project-card fade-in delay-2" target="_blank" rel="noopener" aria-label="Voir le projet SouRIR ONG">
+<div class="project-thumb">
+<span class="badge-status">EN LIGNE</span>
+<img src="sourir-ong.png" alt="Capture d'écran du site SouRIR ONG, page d'accueil dédiée à l'accompagnement psychosocial" class="photo" loading="lazy">
+</div>
+<div class="project-body">
+<h3>SouRIR ONG</h3>
+<p>Site web développé pour l'ONG SouRIR, dédiée au soutien, à la réhabilitation et à l'insertion des personnes en situation de vulnérabilité.</p>
+<ul class="features-list">
+<li>Dépistages psychologiques en ligne (prévention du risque suicidaire, de l'addiction, de l'état de stress post-traumatique, etc.)</li>
+<li>Gestion des commissions et des bénévoles</li>
+<li>Formulaire de contact et de don</li>
+<li>Back-office d'administration</li>
+</ul>
+<div class="project-tech">
+<span>Laravel</span>
+<span>PHP</span>
+<span>MySQL</span>
+<span>Bootstrap</span>
+</div>
+<span class="arrow-btn" aria-hidden="true">→</span>
+</div>
+</a>
+
 </div>
 </section>
 </div>
@@ -398,7 +446,7 @@ footer{padding:40px 0; text-align:center; border-top:1px solid var(--border); ba
 <p>Ouvert aux opportunités, aux collaborations et aux défis techniques autour du développement web moderne.</p>
 <div class="contact-links">
 <a href="mailto:jorisdev1410@gmail.com" class="btn btn-primary">jorisdev1410@gmail.com</a>
-<a href="https://https://github.com/joris-dev14" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+<a href="https://github.com/joris-dev14" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
 <a href="https://www.linkedin.com/in/joris-houindote-6a455a406" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
 <a href="https://wa.me/22957680957" class="btn btn-ghost" target="_blank">WhatsApp</a>
 </div>
@@ -411,7 +459,7 @@ footer{padding:40px 0; text-align:center; border-top:1px solid var(--border); ba
 <div class="footer-name">Joris Houindote</div>
 <div class="footer-role">Développeur Web Fullstack</div>
 <div class="footer-links">
-<a href="https://https://github.com/joris-dev14" target="_blank" rel="noopener">GitHub</a>
+<a href="https://github.com/joris-dev14" target="_blank" rel="noopener">GitHub</a>
 <a href="https://www.linkedin.com/in/joris-houindote-6a455a406" target="_blank" rel="noopener">LinkedIn</a>
 <a href="mailto:jorisdev1410@gmail.com">Email</a>
 <a href="https://wa.me/22957680957" target="_blank">WhatsApp</a>
